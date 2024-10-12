@@ -19,8 +19,8 @@ The project focuses on image segmentation using the region-growing technique. Fo
 |   ├── main.cpp
 |   └── SegmentedRegion.hpp
 ├── CMakeLists.txt
-├── rapport.pdf
-└── README.md
+├── README.md
+└── rapport.pdf
 ```
 
 ### Prerequisites
@@ -33,8 +33,7 @@ This project relies on OpenCV. Please follow [this link](https://opencv.org/get-
 
 1. **Using Visual Studio 17**:
    * Open PowerShell, navigate to the project directory, and run the following commands:
-     * `mkdir build; cd build`
-     * `cmake -G "Visual Studio 17 2022" ..`
+     * `cmake -B build -G "Visual Studio 17 2022"`
    * Open the solution `RegionGrowing.sln` in Visual Studio.
    * Build the `seg` project and set it as the startup project.
    * Go to `Debug` -> `seg Debugging Properties` -> `Debugging` -> `Command Arguments`:
@@ -55,11 +54,10 @@ This project relies on OpenCV. Please follow [this link](https://opencv.org/get-
 
 #### Linux
 * Navigate to the project directory and run:
-  * `mkdir build; cd build`
-  * `cmake -DCMAKE_BUILD_TYPE=Release ..`
-  * `make`
+  * `cmake -B build -DCMAKE_BUILD_TYPE=Release`
+  * `cmake --build build/ -t seg`
 * Once the executable is created, you can run it with the following command:
-  * Example: `./seg ../ressources/image_debout.png 0 1`
+  * Example: `./build/seg ./ressources/image_debout.png 0 1`
 
 ### Command-Line Arguments
 
