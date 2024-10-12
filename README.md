@@ -1,10 +1,10 @@
-# Segmentation - Region Growing
+# Image Segmentation - Region Growing
 
-This project has been made in the context of the teaching unit *Mif02 - "Informatique Graphique Et Image"* of the master of computer science at the university of Claude Bernard Lyon 1 - France, Villeurbanne. 
+This project was developed as part of the course *Mif02 - "Computer Graphics and Image Processing"* for the Master's program in Computer Science at the University Claude Bernard Lyon 1, Villeurbanne, France.
 
-This project is focusing on image segmentation using the region growing approach. For more details you can check out *rapport.pdf*.
+The project focuses on image segmentation using the region-growing technique. For more detailed information, please refer to *rapport.pdf*.
 
-### Project architecture 
+### Project Structure
 
 ```
 .
@@ -25,49 +25,49 @@ This project is focusing on image segmentation using the region growing approach
 
 ### Prerequisites
 
-This project is using OpenCV. Please follow this link to install it on your system : https://opencv.org/get-started/
+This project relies on OpenCV. Please follow [this link](https://opencv.org/get-started/) to install OpenCV on your system.
 
-### Generate and build the project 
+### Building and Running the Project
 
 #### Windows
 
-1. **Visual studio 17**:
-   * Dans le powershell, ce placer dans le répertoire du projet et exécuter ceci:
-      * `mkdir build; cd build`
-      * `cmake -G "Visual Studio 17 2022" ..`
-   * Ouvrir la solution `RegionGrowing.sln`
-   * Générer le projet `seg` et le définir en tant que projet de démarrage.
-   * Dans `Déboguer` -> `Propriétés de débogage de seg` -> `Débogage` -> `Arguments de la commande`:
-     * Ajouter des arguments de commande:
-       * `../ressources/<image à charger> <0 ou 1 pour l'affichage des contours> <0 ou 1 pour le mode de colorisation>`
-       * Exemple: `..ressources/image_debout.png 0 1` 
-   * Passer en mode `Release` et lancer le programme.
+1. **Using Visual Studio 17**:
+   * Open PowerShell, navigate to the project directory, and run the following commands:
+     * `mkdir build; cd build`
+     * `cmake -G "Visual Studio 17 2022" ..`
+   * Open the solution `RegionGrowing.sln` in Visual Studio.
+   * Build the `seg` project and set it as the startup project.
+   * Go to `Debug` -> `seg Debugging Properties` -> `Debugging` -> `Command Arguments`:
+     * Add the following command-line arguments:
+       * `../ressources/<image to load> <0 or 1 for boundary display> <0 or 1 for colorization mode>`
+       * Example: `../ressources/image_debout.png 0 1`
+   * Switch to `Release` mode and run the program.
 
-2. **Clion**
-   * Ouvrir le projet dans Clion en tant que projet `CMake`
-   * Dans `Cmake Profiles` -> `Edit Cmake Profiles`
-     * Ajouter un profile `Release` en utilisant Visual studio en `Toolchain`
-   * Générer le projet `seg` et le définir en tant que projet de démarrage.
-   * Dans `Run` -> `Edit configurations` -> `Débogage` -> `Program arguments`:
-       * Ajouter les arguments de commande suivant:
-           * Exemple: `..ressources/image_debout.png 0 1`
-   * Sélectionner le profil CMake `Release-Visual Studio` et lancer le programme.
-   
+2. **Using CLion**:
+   * Open the project in CLion as a `CMake` project.
+   * Navigate to `CMake Profiles` -> `Edit CMake Profiles`
+     * Add a `Release` profile using Visual Studio as the `Toolchain`.
+   * Build the `seg` project and set it as the startup project.
+   * Go to `Run` -> `Edit Configurations` -> `Debug` -> `Program Arguments`:
+     * Add the following command-line arguments:
+       * Example: `../ressources/image_debout.png 0 1`
+   * Select the `Release-Visual Studio` CMake profile and run the program.
+
 #### Linux
-* Ce placer dans le répertoire du projet et exécuter ceci
+* Navigate to the project directory and run:
   * `mkdir build; cd build`
   * `cmake -DCMAKE_BUILD_TYPE=Release ..`
   * `make`
-* L'exécutable a été créé, plus qu'à compiler: 
-  * Exemple: `./seg ../ressources/image_debout.png 0 1`
+* Once the executable is created, you can run it with the following command:
+  * Example: `./seg ../ressources/image_debout.png 0 1`
 
-### Arguments de commande 
+### Command-Line Arguments
 
-La commande s'écrit comme ceci: `./seg <path/to/your/image> <mode d'affichage> <mode de colorisation>`
-- `<path/to/your/image>`: Chemin de l'image que l'on souhaite traiter (obligatoire)
-- `<mode d'affichage>`: 
-  - 0: affichage des régions complètes 
-  - 1: affichage des contours
-- `<mode de colorisation>`:
-    - 0: colorisation basé sur l'image de base
-    - 1: colorisation aléatoire
+The command follows this format: `./seg <path/to/your/image> <display mode> <colorization mode>`
+- `<path/to/your/image>`: Path to the image to be processed (mandatory).
+- `<display mode>`:
+  - 0: Display complete regions.
+  - 1: Display only region boundaries.
+- `<colorization mode>`:
+  - 0: Colorization based on the original image.
+  - 1: Random colorization.
